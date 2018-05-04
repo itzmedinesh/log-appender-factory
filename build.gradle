@@ -1,0 +1,36 @@
+import static org.gradle.api.JavaVersion.VERSION_1_7
+
+apply plugin: 'java'
+apply plugin: 'maven'
+
+project.sourceCompatibility = '1.7'
+project.targetCompatibility = '1.7'
+
+repositories {
+	maven {
+		url "https://repo.maven.apache.org/maven2" }
+}
+
+dependencies {
+	compile group: 'log4j', name: 'log4j', version: '1.2.17'
+    testCompile "junit:junit:4.11"
+    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-yaml', version: '2.6.3'
+    compile group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.6.3'
+}
+
+ 
+uploadArchives {
+  repositories {
+    mavenDeployer {
+      repository(url: "https://oss.sonatype.org/content/repositories/snapshots") {
+        authentication(userName: project.ext['oss.sonatype.username'], password: project.ext['oss.sonatype.password'])
+      }
+      snapshotRepository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2") {
+        authentication(userName: project.ext['nexus.username'], password: project.ext['nexus.password'])
+      }
+      pom.version = projectVersion
+	  pom.artifactId = 'log-appender-factory'
+	  pom.groupId = 'com.itzmeds.logging'
+    }
+  }
+}

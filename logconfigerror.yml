@@ -1,0 +1,28 @@
+fileAppenderConfig:
+-
+  loggerLayoutPattern: ABC
+  loggerFileBasePath: /
+  loggerFileName: logconftest1.log
+  loggerName: LogConfigTest1
+  loggerLevel: INFO
+  appendLogs: true
+  maxBackupFiles: 5
+  maxFileSize: 20KB
+-
+  loggerLayoutPattern: DEF
+  loggerFileBasePath: /
+  loggerFileName: logconftest2.log
+  loggerName: LogConfigTest2
+  loggerLevel: INFO
+  appendLogs: true
+  maxBackupFiles: 5
+  maxFileSize: 20KB
+dailyFileAppenderConfig:
+-
+  loggerLayoutPattern: ABC
+  loggerFileBasePath: /
+  loggerFileName: logconftest.log
+  loggerName: LogConfigTest
+  loggerLevel: INFO
+  rollingSchedule: MINUTELY_PATTERN
+  
