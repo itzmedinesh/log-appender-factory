@@ -2,6 +2,9 @@
 **************************
 Library to produce log4j appenders and chain it with the loggers defined in the input configuration. Wrapping log4j for ease of use with yaml
 
+# Versions on maven
+http://central.maven.org/maven2/com/github/itzmedinesh/log-appender-factory/
+
 # Sample YAML configuration
 ***********************************
 ```html
